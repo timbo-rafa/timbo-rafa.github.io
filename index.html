@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/timbo.css">
 
     <!-- Font Awesome 5.5.0 -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -47,7 +48,7 @@
 
         <div class="header-logo">
             <a class="site-logo" href="index.html">
-                <img src="images/logo.png" alt="Homepage">
+                <img data-aos="fade-up" src="favicon-white.svg" alt="Homepage">
             </a>
         </div>
 
@@ -67,7 +68,7 @@
                     <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
                 </ul>
     
-                <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p>
+                <!-- <p>Perspiciatis hic praesentium nesciunt. Et neque a dolorum <a href='#0'>voluptatem</a> porro iusto sequi veritatis libero enim. Iusto id suscipit veritatis neque reprehenderit.</p> -->
     
                 <ul class="header-nav__social">
                     <li>
@@ -159,7 +160,7 @@
             </div>
         </div> <!-- end about-desc -->
 
-        <div class="row about-stats stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
+        <div class="none row about-stats stats block-1-4 block-m-1-2 block-mob-full" data-aos="fade-up">
                 
             <div class="col-block stats__col ">
                 <div class="stats__count">127</div>
@@ -448,7 +449,7 @@
 
     <!-- contact
     ================================================== -->
-    <section id="contact" class="s-contact">
+    <section id="contact" class="s-contact none">
 
         <div class="overlay"></div>
         <div class="contact__line"></div>
@@ -532,9 +533,6 @@
 
                     <ul class="contact-social">
                         <li>
-                            <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
                             <a href="https://www.linkedin.com/in/rtimbo/"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                         </li>
                     </ul> <!-- end contact-social -->
@@ -551,7 +549,7 @@
     ================================================== -->
     <footer>
 
-        <div class="row footer-main">
+        <div class="row footer-main none">
 
             <div class="col-six tab-full left footer-desc">
 
@@ -572,12 +570,11 @@
                         <label for="mc-email" class="subscribe-message"></label>
                     </form>
                 </div>
-
             </div>
-
         </div> <!-- end footer-main -->
 
         <div class="row footer-bottom">
+            <h1 class="display-2 display-2--light">Rafael Timbó</h1>
 
             <div class="col-twelve">
                 <div class="copyright">
@@ -589,7 +586,6 @@
                     <a class="smoothscroll" title="Back to Top" href="#top"><i class="icon-arrow-up" aria-hidden="true"></i></a>
                 </div>
             </div>
-
         </div> <!-- end footer-bottom -->
 
     </footer> <!-- end footer -->
