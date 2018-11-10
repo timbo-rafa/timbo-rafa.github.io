@@ -13,3 +13,58 @@ section#contact {
 .none {
   display: none;
 }
+
+.timbo-scale-on-hover:hover {
+  -webkit-transform: scale(1.25);
+  -ms-transform: scale(1.25);
+  transform: scale(1.25);
+}
+
+/* parent of img */
+.overlay-container {
+  position: relative;
+  width: 50%;
+}
+
+.overlay-img {
+  height: auto;
+}
+
+.overlay-container:hover .overlay,
+.overlay-container:hover .overlay-img {
+  position:absolute;
+}
+
+.overlay-img,
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+/* sibling of img */
+.overlay {
+  height: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #000000;
+}
+
+.overlay-container:hover .overlay {
+  opacity: 0.6;
+}
+
+/* text children of .overlay */
+.overlay .overlay-text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
