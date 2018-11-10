@@ -1,14 +1,16 @@
+/*
 img timbo-white-tint {
 
 }
 
 footer {
-  /* display: none; */
+  display: none;
 }
 
 section#contact {
-  /* display: none; */
+  display: none;
 }
+*/
 
 .none {
   display: none;
