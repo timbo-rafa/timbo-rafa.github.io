@@ -336,9 +336,13 @@
                 var sLoader = $('.submit-loader');
     
                 $.ajax({
-    
                     type: "POST",
-                    url: "inc/sendEmail.php",
+                    //dataType: 'json',
+                    //url: "http://localhost:8881/mailer",
+                    url: "https://timbo-rafa.herokuapp.com/mailer",
+                    headers: {
+                        //"Content-type": "application/json"
+                    },
                     data: $(form).serialize(),
                     beforeSend: function() { 
     
@@ -346,7 +350,7 @@
     
                     },
                     success: function(msg) {
-    
+                        //console.log('ajax msg', msg)
                         // Message was sent
                         if (msg == 'OK') {
                             sLoader.slideUp("slow"); 
