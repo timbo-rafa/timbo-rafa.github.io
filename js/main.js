@@ -366,8 +366,9 @@
                         }
     
                     },
-                    error: function() {
-    
+                    error: function(error) {
+
+                        console.log('Server error:', error)
                         sLoader.slideUp("slow"); 
                         $('.message-warning').html("Something went wrong. Please try again.");
                         $('.message-warning').slideDown("slow");
