@@ -332,49 +332,58 @@
         
             /* submit via ajax */
             submitHandler: function(form) {
-    
                 var sLoader = $('.submit-loader');
-    
-                $.ajax({
-                    type: "POST",
-                    //dataType: 'json',
-                    //url: "http://localhost:8881/mailer",
-                    url: "https://timbo-rafa.herokuapp.com/mailer",
-                    headers: {
-                        //"Content-type": "application/json"
-                    },
-                    data: $(form).serialize(),
-                    beforeSend: function() { 
-    
-                        sLoader.slideDown("slow");
-    
-                    },
-                    success: function(msg) {
-                        //console.log('ajax msg', msg)
-                        // Message was sent
-                        if (msg == 'OK') {
-                            sLoader.slideUp("slow"); 
-                            $('.message-warning').fadeOut();
-                            $('#contactForm').fadeOut();
-                            $('.message-success').fadeIn();
-                        }
-                        // There was an error
-                        else {
-                            sLoader.slideUp("slow"); 
-                            $('.message-warning').html(msg);
-                            $('.message-warning').slideDown("slow");
-                        }
-    
-                    },
-                    error: function(error) {
+                
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6LfBs88UAAAAAFfqt8FRAsVBWfB2opS4Ji68G6W4', { action: 'homepage' }).then(function(token) {
 
-                        console.log('Server error:', error)
-                        sLoader.slideUp("slow"); 
-                        $('.message-warning').html("Something went wrong. Please try again.");
-                        $('.message-warning').slideDown("slow");
-    
-                    }
-    
+                        var data = JSON.stringify({
+                            ...form,
+                            token: token
+                        })
+                        console.log('grecaptcha', data);
+            
+                        $.ajax({
+                            type: "POST",
+                            url : "https://localhost:3000",
+                            //url: "https://timbo-rafa.herokuapp.com/mailer",
+                            headers: {
+                                //"Content-type": "application/json"
+                            },
+                            data: $(data).serialize(),
+                            beforeSend: function() { 
+            
+                                sLoader.slideDown("slow");
+            
+                            },
+                            success: function(msg) {
+                                //console.log('ajax msg', msg)
+                                // Message was sent
+                                if (msg == 'OK') {
+                                    sLoader.slideUp("slow"); 
+                                    $('.message-warning').fadeOut();
+                                    $('#contactForm').fadeOut();
+                                    $('.message-success').fadeIn();
+                                }
+                                // There was an error
+                                else {
+                                    sLoader.slideUp("slow"); 
+                                    $('.message-warning').html(msg);
+                                    $('.message-warning').slideDown("slow");
+                                }
+            
+                            },
+                            error: function(error) {
+
+                                console.log('Server error:', error)
+                                sLoader.slideUp("slow"); 
+                                $('.message-warning').html("Something went wrong. Please try again.");
+                                $('.message-warning').slideDown("slow");
+            
+                            }
+            
+                        });
+                    });
                 });
             }
     
