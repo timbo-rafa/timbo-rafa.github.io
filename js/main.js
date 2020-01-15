@@ -335,14 +335,14 @@
                 var sLoader = $('.submit-loader');
                 
                 grecaptcha.ready(function() {
-                    grecaptcha.execute('6LfBs88UAAAAAFfqt8FRAsVBWfB2opS4Ji68G6W4', { action: 'homepage' }).then(function(token) {
+                    grecaptcha.execute('6LfBs88UAAAAAFfqt8FRAsVBWfB2opS4Ji68G6W4').then(function(token) {
 
                         var data = $(form).serialize() + '&token=' + token;
             
                         $.ajax({
                             type: "POST",
-                            url : "https://localhost:3000",
-                            //url: "https://timbo-rafa.herokuapp.com/mailer",
+                            //url : "https://localhost:3000",
+                            url: "https://timbo-rafa.herokuapp.com/mailer",
                             headers: {
                                 //"Content-type": "application/json"
                             },
