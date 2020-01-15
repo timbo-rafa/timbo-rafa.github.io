@@ -337,11 +337,7 @@
                 grecaptcha.ready(function() {
                     grecaptcha.execute('6LfBs88UAAAAAFfqt8FRAsVBWfB2opS4Ji68G6W4', { action: 'homepage' }).then(function(token) {
 
-                        var data = JSON.stringify({
-                            ...form,
-                            token: token
-                        })
-                        console.log('grecaptcha', data);
+                        var data = $(form).serialize() + '&token=' + token;
             
                         $.ajax({
                             type: "POST",
@@ -350,7 +346,7 @@
                             headers: {
                                 //"Content-type": "application/json"
                             },
-                            data: $(data).serialize(),
+                            data: data,
                             beforeSend: function() { 
             
                                 sLoader.slideDown("slow");
