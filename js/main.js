@@ -40,7 +40,11 @@
             // for hero content animations 
             $("html").removeClass('cl-preload');
             $("html").addClass('cl-loaded');
-        
+
+            $('img.lazy-img-load[data-src]').each(function() {
+                $(this).attr('src', $(this).attr('data-src'));
+                $(this).removeClass('lazy-img-load');
+            });
         });
     };
 
