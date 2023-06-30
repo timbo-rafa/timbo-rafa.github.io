@@ -17,6 +17,10 @@
     width: 100%;
 }
 
+.masonry__brick {
+    padding: 10px;
+}
+
 .masonry__brick img {
     transition: .5s ease;
 }
